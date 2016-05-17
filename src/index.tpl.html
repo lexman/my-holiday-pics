@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <title>My holiday pictures</title>
+  </head>
+  <body>
+      <h1 style="text-align: center">My holiday pictures</h1>
+      <div>
+      {% for img in images %}
+            <a href="{{img}}/index.html"> <img src="thumbnails/{{img}}"/> </a>
+      {% endfor %}
+      </div>
+  </body>
+</html>

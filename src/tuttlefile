@@ -1,0 +1,19 @@
+file://avatar.jpg <- https://avatars.githubusercontent.com/u/2512784 ! download
+
+file://avatar200x200.jpg <- file://avatar.jpg
+# Use imagemagick to resize the avatar
+    convert avatar.jpg -resize 200x200 avatar200x200.jpg
+
+file://../web, file://../web/thumbnails <- 
+    mkdir ../web
+    mkdir ../web/thumbnails    
+    
+|<<
+    for IMG in `ls ../images`
+    do
+       tuttle-extend-workflow img.tpl.tuttlefile img=$IMG
+    done
+
+|<<
+    IMAGES=`ls ../images`
+    tuttle-extend-workflow index.tpl.tuttlefile images[]=$IMAGES

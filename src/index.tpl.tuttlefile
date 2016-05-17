@@ -1,0 +1,16 @@
+file://../web/index.html <- file://index.tpl.html, {% for img in images %} file://../web/thumbnails/{{img}} {% if not loop.last %},{%endif%} {% endfor %} ! python
+    from jinja2 import Template
+    from os.path import join
+    from os import listdir
+    TPL = 'index.tpl.html'
+    INDEX = join('..', 'web', 'index.html')
+    THUMBS = join('..', 'web', 'thumbnails')
+
+    with open(TPL, 'rb') as ftpl:
+        t = Template(ftpl.read().decode('utf8'))
+
+    thumbfiles = listdir(THUMBS)
+
+    with open(INDEX, 'wb') as fout:
+        content = t.render(images=thumbfiles)
+        fout.write(content.encode('utf8)'))
