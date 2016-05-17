@@ -10,9 +10,9 @@ file://../web/{{img}}/index.html <- file://img_index.html
 # creates the html index that will display the picture
     cp img_index.html ../web/{{img}}/index.html
 
-file://../web/{{img}}/img_800X600.jpg <- file://../images/{{img}}, file://../web/{{img}}
+file://../web/{{img}}/img_800x600.jpg <- file://../images/{{img}}, file://../web/{{img}}
 # create a a 800X600 image in the center of the html file
-    convert ../images/{{img}} -resize 800x600 ../web/{{img}}/img_800X600.jpg
+    convert ../images/{{img}} -resize 800x600 ../web/{{img}}/img_800x600.jpg
 
 file://../web/thumbnails/{{img}} <- file://../images/{{img}}, file://../web/thumbnails
 # create a a 200x150 thumbnail with border with imagemagick
