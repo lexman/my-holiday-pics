@@ -9,11 +9,13 @@ file://../web, file://../web/thumbnails <-
     mkdir ../web/thumbnails    
     
 |<<
-    for IMG in `ls ../images`
+    IMAGES=`ls ../images`
+    for IMG in $IMAGES
     do
+       echo "Tuttle will work on $IMG"
        tuttle-extend-workflow img.tpl.tuttlefile img=$IMG
     done
-
+        
 |<<
     IMAGES=`ls ../images`
     tuttle-extend-workflow index.tpl.tuttlefile images[]=$IMAGES

@@ -1,12 +1,13 @@
-file://../web/{{img}} <- file://../images/{{img}}
+file://../web/{{img}} <- file://../images/{{img}}, file://../web
 # creates the directory for the web page presenting the picture
     mkdir ../web/{{img}}
 
 file://../web/{{img}}/img_download.jpg <- file://../images/{{img}}, file://../web/{{img}}, file://avatar200x200.jpg
 # add the avatar to the bottom left corner of the image and stores it to the web site
+    echo "Adding the avatar on picture {{img}}"
     composite -gravity SouthWest avatar200x200.jpg ../images/{{img}} ../web/{{img}}/img_download.jpg
 
-file://../web/{{img}}/index.html <- file://img_index.html
+file://../web/{{img}}/index.html <- file://img_index.html, file://../web/{{img}}
 # creates the html index that will display the picture
     cp img_index.html ../web/{{img}}/index.html
 
